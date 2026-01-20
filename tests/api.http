@@ -1,0 +1,36 @@
+### Producción:
+
+### Ruta para listar todos los blogs:
+GET https://full-stack-open-parte-13.onrender.com/api/blogs
+
+### Ruta para adicionar un nuevo blog.
+POST https://full-stack-open-parte-13.onrender.com/api/blogs
+Content-Type: application/json
+
+{
+  "author": "DiriARG",
+  "url": "https://www.google.com/",
+  "title": "Prueba"
+}
+
+### Ruta para eliminar un blog.
+DELETE https://full-stack-open-parte-13.onrender.com/api/blogs/6
+
+
+### Desarrollo:
+
+### Ruta para listar todos los blogs:
+GET http://localhost:3001/api/blogs
+
+### Ruta para adicionar un nuevo blog.
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+  "author": "DiriARG",
+  "url": "https://www.google.com/",
+  "title": "Prueba"
+}
+
+### Ruta para eliminar un blog.
+DELETE http://localhost:3001/api/blogs/5
