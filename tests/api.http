@@ -33,4 +33,4 @@ Content-Type: application/json
 }
 
 ### Ruta para eliminar un blog.
-DELETE http://localhost:3001/api/blogs/5
+DELETE http://localhost:3001/api/blogs/7
