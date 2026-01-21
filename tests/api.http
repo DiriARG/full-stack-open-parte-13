@@ -29,7 +29,7 @@ POST https://full-stack-open-parte-13.onrender.com/api/users
 Content-Type: application/json
 
 {
-  "username": "DiriARG",
+  "username": "f",
   "name": "Matías Di Risio"
 }
 
@@ -44,6 +44,14 @@ Content-Type: application/json
   "username": "Diriabz"
 }
 
+### Ruta para inicar sesión.
+POST https://full-stack-open-parte-13.onrender.com/api/login
+Content-Type: application/json
+
+{
+  "username": "DiriARG@gmail.com",
+  "password": "secret"
+}
 
 
 ### Desarrollo:
@@ -54,15 +62,16 @@ GET http://localhost:3001/api/blogs
 ### Ruta para adicionar un nuevo blog.
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRpcmlBUkdAZ21haWwuY29tIiwiaWQiOjExLCJpYXQiOjE3NjkwMjI0MDd9.Frfe8wOApcsRmH2lWNFgFYEbp9Ir7L1p_tUHtdT3_3A
 
 {
   "author": "DiriARG",
   "url": "https://www.google.com/",
-  "title": "Prueba"
+  "title": "Test ejercicio 13.10 v3"
 }
 
 ### Ruta para eliminar un blog.
-DELETE http://localhost:3001/api/blogs/7
+DELETE http://localhost:3001/api/blogs/9
 
 ### Ruta para actualizar un blog.
 PUT http://localhost:3001/api/blogs/1
@@ -77,7 +86,7 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "username": "DiriARG",
+  "username": "DiriARG@gmail.com",
   "name": "Matías Di Risio"
 }
 
@@ -90,4 +99,13 @@ Content-Type: application/json
 
 {
   "username": "Diriabz"
+}
+
+### Ruta para inicar sesión.
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+  "username": "DiriARG@gmail.com",
+  "password": "secret"
 }

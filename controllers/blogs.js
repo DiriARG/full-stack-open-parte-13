@@ -1,22 +1,55 @@
 // Archivo que contiene el manejo de rutas asociado con los blogs.
 
 const router = require("express").Router();
+const jwt = require("jsonwebtoken");
 
-const { Blog } = require("../models");
+const { Blog, Usuario } = require("../models");
+const { SECRET } = require("../util/config");
 
 // Listar todos los blogs.
 router.get("/", async (req, res) => {
-  const blogs = await Blog.findAll();
+  const blogs = await Blog.findAll({
+    // Se excluye el campo "usuarioId".
+    attributes: { exclude: ["usuarioId"] },
+    // Se incluye el campo "name" de cada usuario.
+    include: {
+      model: Usuario,
+      attributes: ["name"],
+    },
+  });
   res.json(blogs);
 });
 
+// Middleware copiado de la teoría: Inserción correcta de notas.
+const tokenExtractor = (req, res, next) => {
+  const authorization = req.get("authorization");
+  if (authorization && authorization.toLowerCase().startsWith("bearer ")) {
+    try {
+      req.decodedToken = jwt.verify(authorization.substring(7), SECRET);
+    } catch {
+      res.status(401).json({ error: "token invalid" });
+    }
+  } else {
+    res.status(401).json({ error: "token missing" });
+  }
+  next();
+};
+
 // Adicionar un nuevo blog.
-router.post("/", async (req, res, next) => {
+router.post("/", tokenExtractor, async (req, res, next) => {
   try {
-    const blog = await Blog.create(req.body);
+    // Busca en la base de datos al usuario cuyo ID coincide con el extraído del token.
+    const usuario = await Usuario.findByPk(req.decodedToken.id);
+
+    if (!usuario) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
+    // Crea el nuevo blog uniendo los datos recibidos en el body con el ID del usuario que hace la petición.
+    const blog = await Blog.create({ ...req.body, usuarioId: usuario.id });
     return res.json(blog);
   } catch (error) {
-    next(error)
+    next(error);
   }
 });
 
@@ -52,9 +85,8 @@ router.put("/:id", async (req, res, next) => {
 
     res.json(blog);
   } catch (error) {
-    next(error)
+    next(error);
   }
 });
-
 
 module.exports = router;
