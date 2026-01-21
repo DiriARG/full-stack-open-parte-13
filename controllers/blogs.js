@@ -37,4 +37,24 @@ router.delete("/:id", async (req, res) => {
   });
 });
 
+router.put("/:id", async (req, res) => {
+  try {
+    const { likes } = req.body;
+    const blog = await Blog.findByPk(req.params.id);
+
+    if (!blog) {
+      return res.status(404).json({ error: "Blog no encontrado" });
+    }
+
+    // Se actualiza solo el campo "likes" con el valor que viene en el body.
+    blog.likes = likes;
+    await blog.save();
+
+    res.json(blog);
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
+});
+
+
 module.exports = router;
