@@ -6,17 +6,17 @@ GET https://full-stack-open-parte-13.onrender.com/api/blogs
 ### Ruta para adicionar un nuevo blog.
 POST https://full-stack-open-parte-13.onrender.com/api/blogs
 Content-Type: application/json
-Authorization: Bearer Authorization: Bearer ingresareltokenaquí 
+Authorization: Bearer ingresareltokenaquí
 
 {
   "author": "DiriARG",
   "url": "https://www.google.com/",
-  "title": "Funciona!"
+  "title": "Eliminar con token"
 }
 
 ### Ruta para eliminar un blog.
-DELETE https://full-stack-open-parte-13.onrender.com/api/blogs/6
-Authorization: Bearer ingresareltokenaquí 
+DELETE https://full-stack-open-parte-13.onrender.com/api/blogs/16
+Authorization: Bearer ingresareltokenaquí
 
 ### Ruta para actualizar un blog.
 PUT https://full-stack-open-parte-13.onrender.com/api/blogs/8
@@ -71,7 +71,7 @@ GET http://localhost:3001/api/blogs
 ### Ruta para adicionar un nuevo blog.
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer Authorization: Bearer ingresareltokenaquí 
+Authorization: Bearer ingresareltokenaquí 
 
 {
   "author": "DiriARG",

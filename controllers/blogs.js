@@ -11,10 +11,10 @@ router.get("/", async (req, res) => {
   const blogs = await Blog.findAll({
     // Se excluye el campo "usuarioId".
     attributes: { exclude: ["usuarioId"] },
-    // Se incluye el campo "name" de cada usuario.
+    // Se incluye el campo "name" y "username" de cada usuario.
     include: {
       model: Usuario,
-      attributes: ["name"],
+      attributes: ["name", "username"],
     },
   });
   res.json(blogs);
