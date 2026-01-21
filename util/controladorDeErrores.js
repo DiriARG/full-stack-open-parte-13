@@ -3,7 +3,10 @@ const controladorDeErrores = (error, request, response, next) => {
 
   // Errores de validación (ej: campo vacío).
   if (error.name === "SequelizeValidationError") {
-    return response.status(400).json({ error: error.message });
+    // Se entra al array "errors" (de SequelizeValidationError) del objeto "error" para extraer el mensaje. 
+    return response.status(400).json({
+      error: error.errors.map(e => e.message),
+    });
   } 
   // Errores de duplicados.
   else if (error.name === "SequelizeUniqueConstraintError") {
