@@ -6,10 +6,13 @@ const app = express();
 const { PORT } = require("./util/config");
 const { conectarABaseDeDatos } = require("./util/db");
 const blogsRouter = require("./controllers/blogs");
+const controladorDeErrores = require("./util/controladorDeErrores");
 
 app.use(express.json());
 
 app.use("/api/blogs", blogsRouter);
+
+app.use(controladorDeErrores);
 
 const iniciarServidor = async () => {
   await conectarABaseDeDatos();

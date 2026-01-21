@@ -17,7 +17,7 @@ Content-Type: application/json
 DELETE https://full-stack-open-parte-13.onrender.com/api/blogs/6
 
 ### Ruta para actualizar un blog.
-PUT https://full-stack-open-parte-13.onrender.com/api/blogs/2
+PUT https://full-stack-open-parte-13.onrender.com/api/blogs/8
 Content-Type: application/json
 
 {
