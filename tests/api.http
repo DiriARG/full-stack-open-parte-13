@@ -24,6 +24,28 @@ Content-Type: application/json
   "likes": 3
 }
 
+### Ruta para agregar un nuevo usuario.
+POST https://full-stack-open-parte-13.onrender.com/api/users
+Content-Type: application/json
+
+{
+  "username": "DiriARG",
+  "name": "Matías Di Risio"
+}
+
+### Ruta para listar todos los usuarios:
+GET https://full-stack-open-parte-13.onrender.com/api/users
+
+### Ruta para cambiar nombre de usuario.
+PUT https://full-stack-open-parte-13.onrender.com/api/users/DiriARG
+Content-Type: application/json
+
+{
+  "username": "Diriabz"
+}
+
+
+
 ### Desarrollo:
 
 ### Ruta para listar todos los blogs:
@@ -48,4 +70,24 @@ Content-Type: application/json
 
 {
   "likes": 3
+}
+
+### Ruta para agregar un nuevo usuario.
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "username": "DiriARG",
+  "name": "Matías Di Risio"
+}
+
+### Ruta para listar todos los usuarios:
+GET http://localhost:3001/api/users
+
+### Ruta para cambiar nombre de usuario.
+PUT http://localhost:3001/api/users/DiriARG
+Content-Type: application/json
+
+{
+  "username": "Diriabz"
 }

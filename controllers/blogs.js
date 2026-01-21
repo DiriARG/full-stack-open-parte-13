@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 });
 
 // Adicionar un nuevo blog.
-router.post("/", async (req, res) => {
+router.post("/", async (req, res, next) => {
   try {
     const blog = await Blog.create(req.body);
     return res.json(blog);
@@ -37,7 +37,7 @@ router.delete("/:id", async (req, res) => {
   });
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", async (req, res, next) => {
   try {
     const { likes } = req.body;
     const blog = await Blog.findByPk(req.params.id);
