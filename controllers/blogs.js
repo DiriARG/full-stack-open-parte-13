@@ -54,20 +54,31 @@ router.post("/", tokenExtractor, async (req, res, next) => {
 });
 
 // Eliminar un blog.
-router.delete("/:id", async (req, res) => {
-  const blog = await Blog.findByPk(req.params.id);
+router.delete("/:id", tokenExtractor, async (req, res, next) => {
+  try {
+    const blog = await Blog.findByPk(req.params.id);
 
-  if (!blog) {
-    return res.status(404).json({ error: "Blog no encontrado" });
+    if (!blog) {
+      return res.status(404).json({ error: "Blog no encontrado" });
+    }
+
+    // Verificación si el usuario del token es el mismo que creó el blog.
+    if (blog.usuarioId !== req.decodedToken.id) {
+      return res.status(403).json({
+        error: "Solo el creador puede eliminar el blog",
+      });
+    }
+
+    await blog.destroy();
+
+    return res.json({
+      mensaje: "Blog eliminado",
+      // Se muestra el blog eliminado.
+      blog,
+    });
+  } catch (error) {
+    next(error);
   }
-
-  await blog.destroy();
-
-  return res.json({
-    mensaje: "Blog eliminado",
-    // Se muestra el blog eliminado.
-    blog,
-  });
 });
 
 router.put("/:id", async (req, res, next) => {
