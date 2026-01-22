@@ -13,11 +13,21 @@ router.get("/", async (req, res) => {
 
   // Si existe el parámetro "search" en la URL (?search=...).
   if (req.query.search) {
-    filtros.title = {
-      /* [Op.iLike] busca coincidencias sin distinguir entre mayúsculas/minúsculas. 
-      El formato %{req.query.search}% hace que busque la palabra en cualquier posición del título. */
-      [Op.iLike]: `%${req.query.search}%`,
-    };
+    // Se usa [Op.or] para buscar coincidencias tanto en en el título como en el autor (resultado válido si al menos una de las opciones se cumple).
+    filtros[Op.or] = [
+      {
+        title: {
+          /* [Op.iLike] busca coincidencias sin distinguir entre mayúsculas/minúsculas. 
+          El formato %{req.query.search}% hace que busque la palabra en cualquier posición del título. */
+          [Op.iLike]: `%${req.query.search}%`,
+        },
+      },
+      {
+        author: {
+          [Op.iLike]: `%${req.query.search}%`,
+        },
+      },
+    ];
   }
 
   const blogs = await Blog.findAll({
