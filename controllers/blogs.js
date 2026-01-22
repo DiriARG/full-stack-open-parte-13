@@ -40,6 +40,8 @@ router.get("/", async (req, res) => {
     },
     // La opción "where" se utiliza para filtrar la consulta. Si "filtros" está vacio {}, Sequelize ignora el filtrado y retorna todos los registros.
     where: filtros,
+    // Ordena los blogs de mayor a menor cantidad de likes antes de enviarlos al cliente.
+    order: [["likes", "DESC"]],
   });
   res.json(blogs);
 });
