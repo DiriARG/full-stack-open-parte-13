@@ -3,6 +3,9 @@
 ### Ruta para listar todos los blogs:
 GET https://full-stack-open-parte-13.onrender.com/api/blogs
 
+### Ruta para listar todos los blogs (Filtro de busqueda en "title"):
+GET https://full-stack-open-parte-13.onrender.com/api/blogs?search=test
+
 ### Ruta para adicionar un nuevo blog.
 POST https://full-stack-open-parte-13.onrender.com/api/blogs
 Content-Type: application/json
@@ -67,6 +70,9 @@ Content-Type: application/json
 
 ### Ruta para listar todos los blogs:
 GET http://localhost:3001/api/blogs
+
+### Ruta para listar todos los blogs (Filtro de busqueda en "title"):
+GET http://localhost:3001/api/blogs?search=test
 
 ### Ruta para adicionar un nuevo blog.
 POST http://localhost:3001/api/blogs

@@ -2,12 +2,24 @@
 
 const router = require("express").Router();
 const jwt = require("jsonwebtoken");
+const { Op } = require("sequelize");
 
 const { Blog, Usuario } = require("../models");
 const { SECRET } = require("../util/config");
 
 // Listar todos los blogs.
 router.get("/", async (req, res) => {
+  const filtros = {};
+
+  // Si existe el parámetro "search" en la URL (?search=...).
+  if (req.query.search) {
+    filtros.title = {
+      /* [Op.iLike] busca coincidencias sin distinguir entre mayúsculas/minúsculas. 
+      El formato %{req.query.search}% hace que busque la palabra en cualquier posición del título. */
+      [Op.iLike]: `%${req.query.search}%`,
+    };
+  }
+
   const blogs = await Blog.findAll({
     // Se excluye el campo "usuarioId".
     attributes: { exclude: ["usuarioId"] },
@@ -16,6 +28,8 @@ router.get("/", async (req, res) => {
       model: Usuario,
       attributes: ["name", "username"],
     },
+    // La opción "where" se utiliza para filtrar la consulta. Si "filtros" está vacio {}, Sequelize ignora el filtrado y retorna todos los registros.
+    where: filtros,
   });
   res.json(blogs);
 });
