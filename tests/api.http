@@ -172,7 +172,7 @@ Content-Type: application/json
 }
 
 ### Ruta para obtener un usuario y su lista de lectura.
-GET http://localhost:3001/api/users/1
+GET http://localhost:3001/api/users/1?read=false
 
 ### Ruta para marcar blog como leído.
 PUT http://localhost:3001/api/readinglists/1

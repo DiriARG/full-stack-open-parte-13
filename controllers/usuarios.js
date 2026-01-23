@@ -45,6 +45,16 @@ router.put("/:username", async (req, res, next) => {
 
 // Obtener un usuario y su lista de lectura.
 router.get("/:id", async (req, res, next) => {
+  // Este filtro dinámico es para la tabla intermedia "lista_lecturas" ya que ahí se encuentra el campo "leido".
+  const filtro = {};
+
+  if (req.query.read !== undefined) {
+    /* Si req.query.read es "true", la comparación devuelve true.
+    Si es "false" (o cualquier otra cosa), la comparación devuelve false.
+    Así se convierte el texto de la URL en el booleano que la base de datos espera. */
+    filtro.leido = req.query.read === "true";
+  }
+
   try {
     const usuario = await Usuario.findByPk(req.params.id, {
       attributes: ["name", "username"],
@@ -55,6 +65,7 @@ router.get("/:id", async (req, res, next) => {
         attributes: ["id", "url", "title", "author", "likes", "year"],
         through: {
           attributes: ["leido", "id"],
+          where: filtro,
         },
       },
     });
