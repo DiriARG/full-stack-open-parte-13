@@ -28,6 +28,26 @@ Blog.init(
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },
+    year: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        // Validación incorporada de Sequelize para un valor mínimo.
+        min: {
+          args: 1991,
+          msg: "El año debe ser mayor o igual a 1991",
+        },
+        // Validación personalizada para el valor máximo. Se utiliza una función para que el límte sea dinámico (el año actual).
+        max(valor) {
+          /* El "new Date()" crea un nuevo objeto de fecha de js que contiene la fecha y hora exacta del momento en que se ejecuta el código.
+          El ".getFullYear()" es un método de ese objeto de fecha que extrae únicamente el año en formato de cuatro dígitos (ej: 2026). */
+          const añoActual = new Date().getFullYear();
+          if (valor > añoActual) {
+            throw new Error(`El año no puede ser mayor a ${añoActual}`);
+          }
+        },
+      },
+    },
   },
   {
     sequelize,

@@ -4,7 +4,7 @@
 GET https://full-stack-open-parte-13.onrender.com/api/blogs
 
 ### Ruta para listar todos los blogs (Filtro de busqueda en "title"):
-GET https://full-stack-open-parte-13.onrender.com/api/blogs?search=test
+GET https://full-stack-open-parte-13.onrender.com/api/blogs?search=dsp
 
 ### Ruta para listar todos los blogs (Filtro de busqueda en "author"):
 GET http://localhost:3001/api/blogs?search=Diri
@@ -12,12 +12,12 @@ GET http://localhost:3001/api/blogs?search=Diri
 ### Ruta para adicionar un nuevo blog.
 POST https://full-stack-open-parte-13.onrender.com/api/blogs
 Content-Type: application/json
-Authorization: Bearer ingresareltokenaquí
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlc3Rwcm9kdWNjaW9uQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3NjkxODM4ODJ9.J3DrWEJjRhsqgV0E6jHIWwUAS1wKalQOwgK7WPuGLhk
 
 {
   "author": "DiriARG",
   "url": "https://www.google.com/",
-  "title": "Eliminar con token"
+  "title": "Probando dsp de migraciones"
 }
 
 ### Ruta para eliminar un blog.
@@ -45,11 +45,11 @@ Content-Type: application/json
 GET https://full-stack-open-parte-13.onrender.com/api/users
 
 ### Ruta para cambiar nombre de usuario.
-PUT https://full-stack-open-parte-13.onrender.com/api/users/DiriARG
+PUT https://full-stack-open-parte-13.onrender.com/api/users/Testproduccion@gmail.com
 Content-Type: application/json
 
 {
-  "username": "Diriabz"
+  "username": "TestProduccion@gmail.com"
 }
 
 ### Ruta para inicar sesión.
@@ -86,12 +86,13 @@ GET http://localhost:3001/api/blogs?search=Diri
 ### Ruta para adicionar un nuevo blog.
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer ingresareltokenaquí 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRpcmlBUkdAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTc2OTE4NjAwMX0.H3oeiEaE6hok0NzHrl1bIY4lwW1IH41HJ51RyBEq3BA 
 
 {
   "author": "DiriARG",
   "url": "https://www.google.com/",
-  "title": "Test ejercicio 13.10 v3"
+  "title": "Probando migraciones",
+  "year": 2026
 }
 
 ### Ruta para eliminar un blog.
