@@ -43,4 +43,31 @@ router.put("/:username", async (req, res, next) => {
   }
 });
 
+// Obtener un usuario y su lista de lectura.
+router.get("/:id", async (req, res, next) => {
+  try {
+    const usuario = await Usuario.findByPk(req.params.id, {
+      attributes: ["name", "username"],
+      include: {
+        model: Blog,
+        // El "as" le dice a Sequelize qué relación debe usar (muchos a muchos).
+        as: "lecturas",
+        attributes: ["id", "url", "title", "author", "likes", "year"],
+        through: {
+          // Para no mostrar la info de la tabla intermedia.
+          attributes: [],
+        },
+      },
+    });
+
+    if (!usuario) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
+    res.json(usuario);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

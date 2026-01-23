@@ -63,7 +63,19 @@ Content-Type: application/json
 }
 
 ### Ruta de autores: Cantidad total de blogs y número total de likes.
-GET http://localhost:3001/api/authors
+GET https://full-stack-open-parte-13.onrender.com/api/authors
+
+### Ruta para enlazar el id del usuario con el id del blog.
+POST https://full-stack-open-parte-13.onrender.com/api/readinglists
+Content-Type: application/json
+
+{
+  "blogId": 2,
+  "usuarioId": 1
+}
+
+### Ruta para obtener un usuario y su lista de lectura.
+GET https://full-stack-open-parte-13.onrender.com/api/users/1
 
 
 
@@ -87,12 +99,12 @@ GET http://localhost:3001/api/blogs?search=Diri
 ### Ruta para adicionar un nuevo blog.
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer ingresareltokenaquí
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRpcmlBUkdAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTc2OTE5MTkyMn0.6T1K1XnToftbNvxvRKgzVyS3yMKIF3vryS1Rz0JqOaI
 
 {
   "author": "DiriARG",
   "url": "https://www.google.com/",
-  "title": "Ejercicio 10.19",
+  "title": "Ejercicio 10.20",
   "year": 2026
 }
 
@@ -140,3 +152,15 @@ Content-Type: application/json
 
 ### Ruta de autores: Cantidad total de blogs y número total de likes.
 GET http://localhost:3001/api/authors
+
+### Ruta para enlazar el id del usuario con el id del blog.
+POST http://localhost:3001/api/readinglists
+Content-Type: application/json
+
+{
+  "blogId": 2,
+  "usuarioId": 1
+}
+
+### Ruta para obtener un usuario y su lista de lectura.
+GET http://localhost:3001/api/users/1
