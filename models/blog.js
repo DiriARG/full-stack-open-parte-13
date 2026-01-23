@@ -33,8 +33,7 @@ Blog.init(
     sequelize,
     // Como en JS se utiliza camelCase y en Postgres se utiliza snake_case, "underscored:true" le dice a Sequelize que haga esa traducción automáticamente para que la bd siga las convenciones correctas sin tener que cambiar la forma de escribir código en JS.
     underscored: true,
-    // Falso porque no utilizamos las marcas de tiempo (created_at y updated_at) al crear la tabla (Ejercicio 13.2).
-    timestamps: false,
+    timestamps: true,
     modelName: "blog",
   },
 );
