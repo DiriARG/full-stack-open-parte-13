@@ -4,7 +4,7 @@
 GET https://full-stack-open-parte-13.onrender.com/api/blogs
 
 ### Ruta para listar todos los blogs (Filtro de busqueda en "title"):
-GET https://full-stack-open-parte-13.onrender.com/api/blogs?search=dsp
+GET https://full-stack-open-parte-13.onrender.com/api/blogs?search=probando
 
 ### Ruta para listar todos los blogs (Filtro de busqueda en "author"):
 GET http://localhost:3001/api/blogs?search=Diri
@@ -12,12 +12,13 @@ GET http://localhost:3001/api/blogs?search=Diri
 ### Ruta para adicionar un nuevo blog.
 POST https://full-stack-open-parte-13.onrender.com/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlc3Rwcm9kdWNjaW9uQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3NjkxODM4ODJ9.J3DrWEJjRhsqgV0E6jHIWwUAS1wKalQOwgK7WPuGLhk
+Authorization: Bearer ingresareltokenaquí
 
 {
   "author": "DiriARG",
   "url": "https://www.google.com/",
-  "title": "Probando dsp de migraciones"
+  "title": "Probando migraciones en producción",
+  "year": 2026
 }
 
 ### Ruta para eliminar un blog.
@@ -86,12 +87,12 @@ GET http://localhost:3001/api/blogs?search=Diri
 ### Ruta para adicionar un nuevo blog.
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRpcmlBUkdAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTc2OTE4NjAwMX0.H3oeiEaE6hok0NzHrl1bIY4lwW1IH41HJ51RyBEq3BA 
+Authorization: Bearer ingresareltokenaquí
 
 {
   "author": "DiriARG",
   "url": "https://www.google.com/",
-  "title": "Probando migraciones",
+  "title": "Ejercicio 10.19",
   "year": 2026
 }
 
