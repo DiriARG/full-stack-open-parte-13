@@ -54,8 +54,7 @@ router.get("/:id", async (req, res, next) => {
         as: "lecturas",
         attributes: ["id", "url", "title", "author", "likes", "year"],
         through: {
-          // Para no mostrar la info de la tabla intermedia.
-          attributes: [],
+          attributes: ["leido", "id"],
         },
       },
     });
