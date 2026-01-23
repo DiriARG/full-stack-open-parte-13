@@ -77,6 +77,15 @@ Content-Type: application/json
 ### Ruta para obtener un usuario y su lista de lectura.
 GET https://full-stack-open-parte-13.onrender.com/api/users/1
 
+### Ruta para marcar blog como leído.
+PUT https://full-stack-open-parte-13.onrender.com/api/readinglists/1
+Content-Type: application/json
+Authorization: Bearer ingresareltokenaquí
+
+{
+  "read": true
+}
+
 
 
 
@@ -164,3 +173,12 @@ Content-Type: application/json
 
 ### Ruta para obtener un usuario y su lista de lectura.
 GET http://localhost:3001/api/users/1
+
+### Ruta para marcar blog como leído.
+PUT http://localhost:3001/api/readinglists/1
+Content-Type: application/json
+Authorization: Bearer ingresareltokenaquí
+
+{
+  "read": true
+}

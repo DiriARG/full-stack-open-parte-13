@@ -1,11 +1,10 @@
 // Archivo que contiene el manejo de rutas asociado con los blogs.
 
 const router = require("express").Router();
-const jwt = require("jsonwebtoken");
 const { Op } = require("sequelize");
 
 const { Blog, Usuario } = require("../models");
-const { SECRET } = require("../util/config");
+const tokenExtractor = require("../util/tokenExtractor");
 
 // Listar todos los blogs.
 router.get("/", async (req, res) => {
@@ -45,21 +44,6 @@ router.get("/", async (req, res) => {
   });
   res.json(blogs);
 });
-
-// Middleware copiado de la teoría: Inserción correcta de notas.
-const tokenExtractor = (req, res, next) => {
-  const authorization = req.get("authorization");
-  if (authorization && authorization.toLowerCase().startsWith("bearer ")) {
-    try {
-      req.decodedToken = jwt.verify(authorization.substring(7), SECRET);
-    } catch {
-      res.status(401).json({ error: "token invalid" });
-    }
-  } else {
-    res.status(401).json({ error: "token missing" });
-  }
-  next();
-};
 
 // Adicionar un nuevo blog.
 router.post("/", tokenExtractor, async (req, res, next) => {
