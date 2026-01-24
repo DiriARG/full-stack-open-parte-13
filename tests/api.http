@@ -75,7 +75,7 @@ Content-Type: application/json
 }
 
 ### Ruta para obtener un usuario y su lista de lectura.
-GET https://full-stack-open-parte-13.onrender.com/api/users/1
+GET https://full-stack-open-parte-13.onrender.com/api/users/1?read=false
 
 ### Ruta para marcar blog como leído.
 PUT https://full-stack-open-parte-13.onrender.com/api/readinglists/1
@@ -85,6 +85,11 @@ Authorization: Bearer ingresareltokenaquí
 {
   "read": true
 }
+
+### Ruta para que el usuario pueda cerrar sesión (simplemente ingrese el token).
+DELETE https://full-stack-open-parte-13.onrender.com/api/logout
+Authorization: Bearer ingresareltokenaquí
+
 
 
 
@@ -108,12 +113,12 @@ GET http://localhost:3001/api/blogs?search=Diri
 ### Ruta para adicionar un nuevo blog.
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRpcmlBUkdAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTc2OTE5MTkyMn0.6T1K1XnToftbNvxvRKgzVyS3yMKIF3vryS1Rz0JqOaI
+Authorization: Bearer ingresareltokenaquí
 
 {
   "author": "DiriARG",
   "url": "https://www.google.com/",
-  "title": "Ejercicio 10.20",
+  "title": "Ejercicio 10.23",
   "year": 2026
 }
 
@@ -182,3 +187,8 @@ Authorization: Bearer ingresareltokenaquí
 {
   "read": true
 }
+
+### Ruta para que el usuario pueda cerrar sesión (simplemente ingrese el token).
+DELETE http://localhost:3001/api/logout
+Authorization: Bearer ingresareltokenaquí
+

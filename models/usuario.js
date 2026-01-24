@@ -20,8 +20,12 @@ Usuario.init(
       unique: true,
       allowNull: false,
       validate: {
-        isEmail: true
-      }
+        isEmail: true,
+      },
+    },
+    deshabilitado: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
   },
   {

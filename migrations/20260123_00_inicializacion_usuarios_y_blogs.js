@@ -1,3 +1,5 @@
+/* El nombre de los archivos se las migraciones sigue una lógica de orden cronológico estricto.
+Sigue el patrón YYYYMMDD_XX_descripcion.js, donde Y es el año, M es el mes, D es el día y X es el contador que arranca en 0. */
 const { DataTypes } = require("sequelize");
 
 module.exports = {

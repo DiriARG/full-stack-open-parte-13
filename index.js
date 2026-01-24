@@ -11,6 +11,7 @@ const usuariosRouter = require("./controllers/usuarios");
 const loginRouter = require("./controllers/login");
 const autoresRouter = require("./controllers/autores");
 const listasLecturaRouter = require("./controllers/listasLectura");
+const cerrarSesionRouter = require("./controllers/cerrarSesion");
 
 app.use(express.json());
 
@@ -19,6 +20,7 @@ app.use("/api/users", usuariosRouter);
 app.use("/api/login", loginRouter);
 app.use("/api/authors", autoresRouter);
 app.use("/api/readinglists", listasLecturaRouter);
+app.use("/api/logout", cerrarSesionRouter);
 
 app.use(controladorDeErrores);
 
