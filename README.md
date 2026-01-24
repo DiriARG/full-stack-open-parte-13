@@ -23,11 +23,15 @@ Dicha recomendación dice:
 - **GitHub:** [DiriARG](https://github.com/DiriARG)
 
 ## Despliegue en Línea 🚀
+
 > [!NOTE]  
-> El despliegue de esta aplicación fue realizado en **Render** y no en **Heroku** ni **Fly.io**, ya que actualmente estas plataformas no cuentan con un plan gratuito disponible, mientras que Render sí lo ofrece.  
->  
+> El despliegue de esta aplicación fue realizado en **Render** y no en **Heroku** ni **Fly.io**, ya que actualmente estas plataformas no cuentan con un plan gratuito disponible, mientras que Render sí lo ofrece.
+>
 > Además, la **Parte 3 del curso** también fue desplegada utilizando **Render**, por lo que decidí mantener la misma plataforma a lo largo del curso.
 
 El backend de la aplicación ya se encuentra desplegado y accesible en línea a través del siguiente enlace: 👉
-[Ver aplicación en Render](https://full-stack-open-parte-13.onrender.com).  
+[Ver aplicación en Render](https://full-stack-open-parte-13.onrender.com).
 
+## Certificado del curso 😁:
+
+<img src="./certificado-psql.png" alt="Certificado del curso sobre bases de datos relacionales">
